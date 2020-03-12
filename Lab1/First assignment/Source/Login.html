@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+
+    <!-- for width and initial scale is for setting Zoom version -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap Css  -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Jquery Import for any of the function calls -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Bootstrap JS  -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Importing Angular Js -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+</head>
+
+<script>
+
+    // Saving Register DetailsLo
+    function saveLogin(){
+        // Getting Email,Password from Registration
+        const emailId = $("#loginEmail").val();
+        const password = $("#loginPassword").val();
+        // Hiding all errors
+        $("#emailError").hide();
+        $("#passwordError").hide();
+        $("#invalidLoginError").hide();
+        $("#regSuccesful").hide();
+        $("#wrongEmailRegExpError").hide();
+
+        let isErrorInRegistration = false;
+        if(emailId == null || $.trim(emailId) === '') {
+            isErrorInRegistration = true;
+            $("#emailError").show();
+        }else {
+            const atposition = emailId.indexOf("@");
+            const dotposition = emailId.lastIndexOf(".");
+            if (atposition < 1 || dotposition < atposition+2 || dotposition+2 >= emailId.length) {
+                isErrorInRegistration = true;
+                $("#wrongEmailRegExpError").show();
+            }
+        }
+        if(password == null || $.trim(password) === '') {
+            isErrorInRegistration = true;
+            $("#passwordError").show();
+        }
+        if(isErrorInRegistration) {
+            // Stopping next flow
+            return false;
+        }else{
+            $("#regSuccesful").show();
+            // Setting Password to Empty
+            $('#loginPassword').val('');
+        }
+
+        localStorage.setItem("emailId",emailId);
+        localStorage.setItem("password",password);
+    }
+
+    // Verifying the LocalStorage Data
+    function verifyLogin() {
+        // Hiding all errors
+        $("#emailError").hide();
+        $("#passwordError").hide();
+        $("#invalidLoginError").hide();
+        $("#regSuccesful").hide();
+        $("#wrongEmailRegExpError").hide();
+
+        // Getting Email,Password from Login
+        const emailId = $("#loginEmail").val();
+        const password = $("#loginPassword").val();
+
+        let isErrorInLogin = false;
+
+        if(emailId == null || $.trim(emailId) === '') {
+            isErrorInLogin = true;
+            $("#emailError").show();
+        }
+        if(password == null || $.trim(password) === '') {
+            isErrorInLogin = true;
+            $("#passwordError").show();
+        }
+
+        if(isErrorInLogin){
+            // Stop flow
+            return false;
+        }
+
+        // Checking If registered Details and Input login details are matching
+        if(!(localStorage.getItem("emailId") != null
+            && localStorage.getItem("emailId") === emailId
+            && localStorage.getItem("password") != null
+            && localStorage.getItem("password") === password)){
+            $("#invalidLoginError").show();
+            return false;
+        }
+
+        window.location.href = "CourseRegistration.html";
+    }
+
+</script>
+
+<body background="https://www.umkc.edu/news/posts/2019/july/july-pics/Aerial-UMKC-Today-Main-Top-Feature.jpg">
+
+<div class="container">
+    <h2 align="justify" style="color: white"><strong><u>Student Login</u></strong></h2><br/>
+    <!-- <form class="form-horizontal" id="formSubmit"> -->
+
+    <p id="emailError" style="display: none;color: white">Email Id is Required</p>
+    <p id="wrongEmailRegExpError" style="display: none;color: white" >Please Give A valid Email </p>
+    <p id="passwordError" style="display: none;color: white">Password is Required</p>
+    <p id="invalidLoginError" style="display: none;color: white" >Invalid Login, Please Try Again!!</p>
+    <p id="regSuccesful" style="display: none;color: white">Thank You for Registering Your Email</p>
+
+    <br>
+    <br>
+    <div id="loginDiv" class="form-horizontal">
+        <div class="form-group">
+            <label class="control-label col-sm-4" for="loginEmail" style="color: snow">Email:</label>
+            <div class="col-sm-7">
+                <input type="email" class="form-control" id="loginEmail" placeholder="Enter email address" name="email">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4" for="loginPassword" style="color: snow">Password:</label>
+            <div class="col-sm-7">
+                <input type="password" class="form-control" id="loginPassword" placeholder="Enter password" name="pwd">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-5 col-sm-5">
+                <button type="submit" class="btn btn-success" onclick="return verifyLogin();">Login</button>
+                <button type="submit" class="btn btn-info" onclick="return saveLogin();">Registration</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

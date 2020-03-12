@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="App" ng-controller="Ctrl">
+<head>
+    <meta charset="UTF-8">
+    <title>Courses</title>
+    <link rel="stylesheet" type="text/css" href="Style.css">
+
+    <!-- for width and initial scale is for setting Zoom version -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap Css-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Jquery Import  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Bootstrap JS Import -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Importing Angular Js -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.4/angular.min.js"></script>
+
+    <script src="coursescript.js"></script>
+
+    <!-- Font Icon Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--Nav-bar-->
+    <script src ="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+</head>
+
+<!--calling Nav-bar-->
+<script>
+    $(function() {
+        $("#nav-bar").load("Nav-bar.html");
+    });
+</script>
+<body background="https://www.umkc.edu/news/posts/2019/july/july-pics/Aerial-UMKC-Today-Main-Top-Feature.jpg">
+
+<div id="nav-bar">
+</div>
+
+<div class="container">
+
+    <div align="justify" style="color: white">
+        <h1>Available Courses</h1>
+
+    </div>
+    <!-- first Available Courses in the website -->
+    <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#course1">Computer Science 449</a>
+                </h4>
+            </div>
+            <div id="course1" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <div class="media-body">
+                        <h4 style="color: orangered"><u>Course Description</u></h4>
+                        <p class="well">software engineering and software development</p>
+                        <hr>
+
+                        <!-- Image, URL of the Course -->
+                        <h4 style="color: orangered">Click on below to see the section </h4>
+                        <a href="javascript:void(0)" ng-click="enrollForCourse('course1')">Computer Science 449</a>
+                        <br/><br/>
+
+                        <hr>
+                        <!-- Course 1 Details -->
+                        <h4 style="color: orangered"><u>Course Details</u></h4>
+
+                        <!-- Responsive Table Bootstrap -->
+                        <div id="classTimings" class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Days</th>
+                                    <th>Start</th>
+                                    <th>End</th>
+                                    <th>Room</th>
+                                    <th>Instructor</th>
+                                    <th>Dates</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>Mon Wed </td>
+                                    <td>5:10 PM</td>
+                                    <td>6:50 PM</td>
+                                    <td>Royall Hall-Rm 00206</td>
+                                    <td> Brain Hare</td>
+                                    <th>01/21/2020 - 5/15/2020</th>
+                                </tr>
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Second Available Courses in website -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#course2">Computer Science 456 </a>
+                    </h4>
+                </div>
+            <div id="course2" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <div class="media-body">
+                        <h4 style="color: orangered"><u>Course Description</u></h4>
+                        <p class="well">Design class for web site .</p>
+                        <hr>
+
+                        <h4 style="color: orangered">Click on below To see the section </h4>
+                        <a href="javascript:void(0)" ng-click="enrollForCourse('course2')">Computer Science 456 </a>
+                        <br/><br/>
+
+
+
+                        <hr>
+                        <!-- Course 2 Details -->
+                        <h4 style="color: orangered"><u>Course Details</u></h4>
+                        <!-- Responsive Table Bootstrap -->
+                        <div id="courseTiming2" class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Days</th>
+                                    <th>Start</th>
+                                    <th>End</th>
+                                    <th>Room</th>
+                                    <th>Instructor</th>
+                                    <th>Dates</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>Thu Th</td>
+                                    <td>7:00PM</td>
+                                    <td>8:15PM</td>
+                                    <td>Haag Hall-Rm 00302</td>
+                                    <td>Mohamoud Ali</td>
+                                    <td>01/21/2020 - 5/15/2020</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+</body>
+</html>

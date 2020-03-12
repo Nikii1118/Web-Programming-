@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="App" ng-controller="Ctrl">
+<head>
+    <meta charset="UTF-8">
+    <title>Nav-bar</title>
+    <link rel="stylesheet" type="text/css" href="Style.css">
+
+
+    <!-- Bootstrap Css -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+
+<!-- Nav-Bar -->
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+
+        <ul class="nav navbar-nav">
+            <!-- To make tabs toggleable, added the data-toggle attribute -->
+            <li class="active"><a href="Registration.html" >Home</a></li>
+
+
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">Departments</a>
+                <div class="dropdown-content">
+                    <a href="Enrollment.html">Computer Science</a>
+                    <a href="Enrollment.html">Math</a>
+                    <a href="Enrollment.html">Science</a>
+
+                </div>
+            </li>
+            </li>
+            <li class="active"><a href="AboutUs.html" >About</a></li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+
+
+            <div class="navbar-header">
+                <div class="navbar-brand" id="homePage"></div>
+            </div>
+            <li style="float:right" class="dropdown"><a class="dropbtn" href="javascript:void(0)">MyAccount</a>
+                <div class="dropdown-content">
+                    <a href="Registration.html">Orders</a>
+                    <a href="Registration.html">Favourites</a>
+                    <a href="Registration.html">Account Info</a>
+                </div>
+            </li>
+            <li><a ng-click="signOut()"><span class="glyphicon glyphicon-user"></span> Sign Out</a></li>
+        </ul>
+    </div>
+</nav>

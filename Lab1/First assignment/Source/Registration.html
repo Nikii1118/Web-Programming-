@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="courseRegApp" ng-controller="courseRegCtrl">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <link rel="stylesheet" type="text/css" href="Style.css">
+
+
+    <!-- for width and initial scale is for setting Zoom version -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap Css  -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Jquery Import  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Bootstrap JS  -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Importing Angular Js -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.4/angular.min.js"></script>
+    <script src="coursescript.js"></script>
+    <!--Nav-bar-->
+    <script src ="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+</head>
+
+<!--calling Nav-bar-->
+<script>
+    $(function() {
+        $("#nav-bar").load("Nav-bar.html");
+    });
+</script>
+<body background="https://www.umkc.edu/news/posts/2019/july/july-pics/Aerial-UMKC-Today-Main-Top-Feature.jpg">
+
+<div id="nav-bar">
+
+</div>
+<div class="container">
+
+    <!-- Header tags with Inline Styling -->
+    <div align="justify" style="color: White">
+        <h1>Registration</h1>
+
+    </div>
+
+    <br/>
+    <!-- Education level -->
+    <div class="form-group">
+        <label for="EdcLevel" style="color: white">Enrollment Level</label><br/>
+        <!-- Using ng-options we will be showing the dropdown by iterating the List
+         & using ng-init we are setting a pre-loaded value in dropdown on page load -->
+        <select class="form-control" id="EdcLevel" ng-model="selectedLevel" ng-options="Level for Level in EdcLevel"
+                ng-init="selectedLevel = EdcLevels[0]">
+        </select>
+    </div>
+
+    <!-- Semester and Years -->
+    <div class="row">
+        <div class="col-sm-6 form-group">
+            <label for="Terms" style="color: white">Enrollment Term</label>
+            <select class="form-control" id="Terms" ng-model="selectedTerm" ng-options="Term for Term in Terms"
+                    ng-init="selectedTerm = Terms[0]">
+            </select>
+        </div>
+
+        <div class="col-sm-6 form-group">
+            <label for="EnrollmentYear" style="color: white">Enrollment Year</label>
+            <select class="form-control" id="EnrollmentYear" ng-model="SelectedYear" ng-options="year for year in EnrollmentYear"
+                    ng-init="selectedYear = EnrollmentYear[0]">
+            </select>
+        </div>
+    </div>
+
+    <!-- Career Options -->
+    <div class="form-group">
+        <label for="SchoolOptions" style="color: white"> Select School</label>
+        <select class="form-control" id="SchoolOptions" ng-model="selectedSchool" ng-options="School for School in SchoolOptions"
+                ng-init="SelectedSchool = SchoolOptions[0]">
+        </select>
+    </div>
+    <br/>
+
+    <!-- Search for Courses (Center alignment using center-block)-->
+    <button type="button" class="btn btn-primary justify-block" ng-click="search()">Search</button>
+
+</div>
+
+</body>
+</html>

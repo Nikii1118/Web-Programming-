@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="App" ng-controller="Ctrl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Enrollment</title>
+    <link rel="stylesheet" type="text/css" href="Style.css">
+
+    <!-- for width and initial scale is for setting Zoom version -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap Css -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Jquery Import  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Bootstrap JS  -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Importing Angular Js -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.4/angular.min.js"></script>
+
+    <script src="coursescript.js"></script>
+
+    <!--Nav-bar-->
+    <script src ="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+</head>
+
+<!--calling Nav-bar-->
+<script>
+    $(function() {
+        $("#nav-bar").load("Nav-bar.html");
+    });
+</script>
+<body background="https://www.umkc.edu/news/posts/2019/july/july-pics/Aerial-UMKC-Today-Main-Top-Feature.jpg">
+
+<div id="nav-bar">
+
+</div>
+
+
+<div class="container">
+
+    <!-- Header tags with Inline Styling -->
+    <div align="justify" style="color: White">
+        <h1>Enrollment Course</h1>
+    </div>
+    <br/>
+
+    <div id="enrollCourse1">
+
+        <h4 style="color: white"><u>Computer Science 449</u></h4>
+
+        <!-- Responsive Table using Bootstrap -->
+        <div id="course1Timings" class="table-responsive" style="background-color: white">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Days</th>
+                    <th>Start</th>
+                    <th>End</th>
+                    <th>Room</th>
+                    <th>Instructor</th>
+                    <th>Dates</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Mon Wed </td>
+                    <td>3:30 PM</td>
+                    <td>8:45 PM</td>
+                    <td>Room 00206</td>
+                    <td> Brain Hare</td>
+                    <th>01/21/2020 - 5/15/2020</th>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <br>
+        <!-- Available, Total Seats iteration from the List in Script -->
+        <div ng-repeat="x in OpenSeats" align="center" style="background-color: orange">
+            <strong ng-bind="x.text"></strong> :
+            <span ng-bind="x.seats"></span>
+        </div>
+        <br/>
+
+        <!-- Enroll, Drop Button -->
+        <button id="course1Enroll" type="button" class="btn btn-primary center-block" ng-click="enrollOrDrop($event)">Enroll</button>
+        <br/>
+        <!-- Success Message -->
+        <p align="center" style="color: red"><strong id="successEnrolling"></strong></p>
+
+    </div>
+</div>
+
+</body>
+</html>

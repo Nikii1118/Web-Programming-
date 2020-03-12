@@ -1,0 +1,70 @@
+.SocialIcons-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
+}
+.SocialIcons-list li {
+    margin: 30px 10px;
+}
+.SocialIcons-list li a {
+    text-decoration: none;
+    padding: 30px;
+    font-size: 30px;
+    border-radius: 50%;
+    color: #fff;
+    background-color: #f1f1f1;
+    transition: all ease-in-out 150ms;
+}
+.SocialIcons-list li a:hover {
+    text-shadow: 0 5px 10px #212121;
+}
+
+.SocialIcons-list li:nth-child(1) a {
+    background-color: #3e5b98;
+}
+.SocialIcons-list li:nth-child(2) a {
+    background-color: #c13584;
+}
+.SocialIcons-list li:nth-child(3) a {
+    background-color: #4da7de;
+}
+
+
+
+
+li.dropdown {
+    display: inline-block;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+.dropdown-content a:hover {background-color: #f1f1f1}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.button {
+    background-color: dodgerblue;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
