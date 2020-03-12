@@ -1,6 +1,6 @@
-const app = angular.module('App', []);
+const app = angular.module('courseRegApp', []);
 
-app.controller('Ctrl', function($scope) {
+app.controller('courseRegCtrl', function($scope) {
 
     //  Below Lists Will be iterated in html using Angular JS
     $scope.EdcLevel = ["Bachelors", "Masters", "PHD"];
@@ -58,8 +58,8 @@ app.controller('Ctrl', function($scope) {
 
 });
 
-// Function for Greeting, checks if the Storage email Id is present
-
+// Function for Greeting, checks if the local Storage email Id is present or not
+// Else, it will greet as 'Guest'
 $(function() {
     // Setting Greeting for Signed In user
     let signedInUser = null;

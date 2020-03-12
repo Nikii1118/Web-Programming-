@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="App" ng-controller="Ctrl">
+<html lang="en" ng-app="courseRegApp" ng-controller="courseRegCtrl">
 <head>
     <meta charset="UTF-8">
     <title>Courses</title>
@@ -57,7 +57,7 @@
                 <div class="panel-body">
                     <div class="media-body">
                         <h4 style="color: orangered"><u>Course Description</u></h4>
-                        <p class="well">software engineering and software development</p>
+                        <p class="well">The course introduces concepts of software engineering and the software development process.Students will get a solid foundation in agile methodology, software requirements, exceptions and assertions, verification and validation, software models and modeling, and user Interface design.Various software architectures will be discussed.</p>
                         <hr>
 
                         <!-- Image, URL of the Course -->
@@ -85,76 +85,71 @@
                                 <tbody>
                                 <tr>
                                     <td>Mon Wed </td>
-                                    <td>5:10 PM</td>
-                                    <td>6:50 PM</td>
+                                    <td>5:30 PM</td>
+                                    <td>6:45 PM</td>
                                     <td>Royall Hall-Rm 00206</td>
                                     <td> Brain Hare</td>
                                     <th>01/21/2020 - 5/15/2020</th>
                                 </tr>
                                 </tbody>
-
                             </table>
-
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
 
 
-            <!-- Second Available Courses in website -->
+            <!-- Second Available Courses in the website -->
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title">
                         <a data-toggle="collapse" data-parent="#accordion" href="#course2">Computer Science 456 </a>
                     </h4>
                 </div>
-            <div id="course2" class="panel-collapse collapse">
-                <div class="panel-body">
-                    <div class="media-body">
-                        <h4 style="color: orangered"><u>Course Description</u></h4>
-                        <p class="well">Design class for web site .</p>
-                        <hr>
+                <div id="course2" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <div class="media-body">
+                            <h4 style="color: orangered"><u>Course Description</u></h4>
+                            <p class="well">Design of human-computer interfaces considering the psychological and physical abilities of the user.  User interface design from a functional and ergonomic perspective. Contents organization, visual organization, navigation. Use of graphical user interface (GUI) and the development of high quality user interfaces.</p>
+                            <hr>
 
-                        <h4 style="color: orangered">Click on below To see the section </h4>
-                        <a href="javascript:void(0)" ng-click="enrollForCourse('course2')">Computer Science 456 </a>
-                        <br/><br/>
+                            <h4 style="color: orangered">Click on below To see the section </h4>
+                            <a href="javascript:void(0)" ng-click="enrollForCourse('course2')">Computer Science 456 </a>
+                            <br/><br/>
 
 
 
-                        <hr>
-                        <!-- Course 2 Details -->
-                        <h4 style="color: orangered"><u>Course Details</u></h4>
-                        <!-- Responsive Table Bootstrap -->
-                        <div id="courseTiming2" class="table-responsive">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th>Days</th>
-                                    <th>Start</th>
-                                    <th>End</th>
-                                    <th>Room</th>
-                                    <th>Instructor</th>
-                                    <th>Dates</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>Thu Th</td>
-                                    <td>7:00PM</td>
-                                    <td>8:15PM</td>
-                                    <td>Haag Hall-Rm 00302</td>
-                                    <td>Mohamoud Ali</td>
-                                    <td>01/21/2020 - 5/15/2020</td>
-                                </tr>
-                                </tbody>
-                            </table>
+                            <hr>
+                            <!-- Course 2 Details -->
+                            <h4 style="color: orangered"><u>Course Details</u></h4>
+                            <!-- Responsive Table Bootstrap -->
+                            <div id="courseTiming2" class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>Days</th>
+                                        <th>Start</th>
+                                        <th>End</th>
+                                        <th>Room</th>
+                                        <th>Instructor</th>
+                                        <th>Dates</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>Thu Th</td>
+                                        <td>7:00PM</td>
+                                        <td>8:15PM</td>
+                                        <td>Haag Hall-Rm 00302</td>
+                                        <td>Mohamoud Ali</td>
+                                        <td>01/21/2020 - 5/15/2020</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
 </body>
 </html>
