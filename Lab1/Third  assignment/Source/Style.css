@@ -1,0 +1,79 @@
+#back{
+    background-image:url('https://wallpaperplay.com/walls/full/e/5/e/101657.jpg');
+    background-repeat: No-repeat;
+    width:1500px;
+
+
+
+
+}
+.menu input{
+    width: 400px;
+    background: center;
+    border: 2px solid #ffc0cb;
+    border-radius: 4px;
+    color: #ff089e;
+    font-family: 'Exo', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 6px;
+    margin-top: 10px;
+}
+.menu button{
+    width: 400px;
+    height:40px;
+    background: #ffc0cb;
+    border:  2px solid #ff089e;
+    cursor: pointer;
+    border-radius: 4px;
+    color: #ff089e;
+    font-family: 'Exo', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 6px;
+    margin-top: 10px;
+}
+table {
+    max-width: 960px;
+    margin: 10px auto;
+    border: 1px solid #ff089e;
+}
+
+caption {
+    font-size: 1.6em;
+    font-weight: 400;
+    padding: 10px 0;
+}
+
+thead th {
+    font-weight: 600;
+    background: #ffc0cb;
+    color: #FFF;
+}
+
+tr {
+    background: #ff089e;
+    border: 1px solid #FFF;
+    margin-bottom: 8px;
+}
+
+tr:nth-child(even) {
+    background: #e8eeef;
+}
+
+th, td {
+    text-align: left;
+    padding: 30px;
+    font-weight: 200;
+}
+
+tfoot tr {
+    background: none;
+}
+
+tfoot td {
+    padding: 10px 2px;
+    font-size: 0.8em;
+    font-style: italic;
+    color: #ffc0cb;
+}

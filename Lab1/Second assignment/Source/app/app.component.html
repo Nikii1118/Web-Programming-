@@ -1,0 +1,24 @@
+<div class="game_box">
+  <div class="game_con">
+    <div class="score_box">
+      <!-- I have created a class new_best_score which is displaying score and best score dynamically-->
+      <h2 class="score" [ngClass]="{'new_b_score': newBScore}">Score: {{score}}</h2>
+        <h2 class="best_score" [ngClass]="{'new_b_score': newBScore}">Best Score: {{BestScore}}</h2>
+    </div>
+  </div>
+  <!--  I am passing variable column in box for every row created -->
+  <div class="r" *ngFor="let col of box; let a=index;">
+    <div class="column" [ngStyle]="{'background-color': ColorSetting(a, b)}" *ngFor="let row of col; let b = index">
+    </div>
+  </div>
+      <div class="s_game_button" [ngClass]="{'disabling_clicking': gameStarted}" (click)="showMenuStart()">Start Game</div>
+  <!-- It is displaying menu-->
+    <div class="n_game_m_button" *ngIf="showMenuBox">
+    <!-- It display what is the mode of the game-->
+        <div class="s_game_button n_game_button" (click)="newGameStart(mode1)" *ngFor="let mode1 of GetAllKeys(ALLModes)">{{ALLModes[mode1]}}
+
+        </div>
+        </div>
+      </div>
+
+
