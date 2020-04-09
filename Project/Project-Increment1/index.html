@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="x.css">
+    <script>
+        let sim = 0;
+        let sau = 0;
+
+        function raj()
+        {
+            let x = document.getElementById("saurav");
+            let y = x.insertRow(0);
+            y.style.height="10%";
+            let b = y.insertCell(0);
+            b.style.width="20%";
+            b.innerHTML="POACHED EGG";
+            let d = y.insertCell(1);
+            d.style.width="16%";
+            let e = prompt("quantity");
+            d.innerHTML=e;
+            let a = [];
+            for(let i=2; i<6; i++)
+            {
+                a[i]=y.insertCell(i);
+                a[i].style.width="16%";
+            }
+            a[2].innerHTML=4*e+"gm";
+            a[3].innerHTML=17*e+"gm";
+            a[4].innerHTML=10*e+"gm";
+            a[5].innerHTML=50*e;
+            sim+=50*e;
+            document.getElementById("simran").innerHTML=sim+"kcal";
+            if(sau<sim)
+                alert("DON'T CROSS YOUR LIMIT");
+        }
+        function raj1()
+        {
+            const x = document.getElementById("saurav");
+            const y = x.insertRow(0);
+            y.style.height="10%";
+            const b = y.insertCell(0);
+            b.style.width="20%";
+            b.innerHTML="SANDWICH";
+            const d = y.insertCell(1);
+            d.style.width="16%";
+            const e = prompt("quantity");
+            d.innerHTML=e;
+            const a = [];
+            for(let i=2; i<6; i++)
+            {
+                a[i]=y.insertCell(i);
+                a[i].style.width="16%";
+            }
+            a[2].innerHTML=1*e+"gm";
+            a[3].innerHTML=19*e+"gm";
+            a[4].innerHTML=30*e+"gm";
+            a[5].innerHTML=60*e;
+            sim+=60*e;
+            document.getElementById("simran").innerHTML=sim+"kcal";
+            if(sau<sim)
+                alert("DON'T CROSS YOUR LIMIT");
+        }
+        function raj2()
+        {
+            const x = document.getElementById("saurav");
+            const y = x.insertRow(0);
+            y.style.height="10%";
+            const b = y.insertCell(0);
+            b.style.width="20%";
+            b.innerHTML="PIZZA";
+            const d = y.insertCell(1);
+            d.style.width="16%";
+            const e = prompt("quantity");
+            d.innerHTML=e;
+            const a = [];
+            for(let i=2; i<6; i++)
+            {
+                a[i]=y.insertCell(i);
+                a[i].style.width="16%";
+            }
+            a[2].innerHTML=2*e+"gm";
+            a[3].innerHTML=15*e+"gm";
+            a[4].innerHTML=20*e+"gm";
+            a[5].innerHTML=80*e;
+            sim+=80*e;
+            document.getElementById("simran").innerHTML=sim+"kcal";
+            if(sau<sim)
+                alert("DON'T CROSS YOUR LIMIT");
+        }
+        function raj3()
+        {
+            const x = document.getElementById("saurav");
+            const y = x.insertRow(0);
+            y.style.height="10%";
+            const b = y.insertCell(0);
+            b.style.width="20%";
+            b.innerHTML="BURGER";
+            const d = y.insertCell(1);
+            d.style.width="16%";
+            const e = prompt("quantity");
+            d.innerHTML=e;
+            const a = [];
+            for(let i=2; i<6; i++)
+            {
+                a[i]=y.insertCell(i);
+                a[i].style.width="16%";
+            }
+            a[2].innerHTML=2*e+"gm";
+            a[3].innerHTML=30*e+"gm";
+            a[4].innerHTML=28*e+"gm";
+            a[5].innerHTML=70*e;
+            sim+=70*e;
+            document.getElementById("simran").innerHTML=sim+"kcal";
+            if(sau<sim)
+                alert("DON'T CROSS YOUR LIMIT");
+        }
+        function raj4()
+        {
+            const x = document.getElementById("saurav");
+            const y = x.insertRow(0);
+            y.style.height="10%";
+            const b = y.insertCell(0);
+            b.style.width="20%";
+            b.innerHTML="EGG ROLL";
+            const d = y.insertCell(1);
+            d.style.width="16%";
+            const e = prompt("quantity");
+            d.innerHTML=e;
+            const a = [];
+            for(let i=2; i<6; i++)
+            {
+                a[i]=y.insertCell(i);
+                a[i].style.width="16%";
+            }
+            a[2].innerHTML=6*e+"gm";
+            a[3].innerHTML=10*e+"gm";
+            a[4].innerHTML=13*e+"gm";
+            a[5].innerHTML=130*e;
+            sim+=130*e;
+            document.getElementById("simran").innerHTML=sim+"kcal";
+            if(sau<sim)
+                alert("DON'T CROSS YOUR LIMIT");
+        }
+        function raj5()
+        {
+            const x = document.getElementById("saurav");
+            const y = x.insertRow(0);
+            y.style.height="10%";
+            const b = y.insertCell(0);
+            b.style.width="20%";
+            b.innerHTML="COKE";
+            const d = y.insertCell(1);
+            d.style.width="16%";
+            const e = prompt("quantity");
+            d.innerHTML=e;
+            const a = [];
+            for(let i=2; i<6; i++)
+            {
+                a[i]=y.insertCell(i);
+                a[i].style.width="16%";
+            }
+            a[2].innerHTML=0+"gm";
+            a[3].innerHTML=9*e+"gm";
+            a[4].innerHTML=19*e+"gm";
+            a[5].innerHTML=90*e;
+            sim+=90*e;
+            document.getElementById("simran").innerHTML=sim+"kcal";
+            if(sau<sim)
+                alert("DON'T CROSS YOUR LIMIT");
+        }
+        function raj6()
+        {
+            const x = document.getElementById("saurav");
+            const y = x.insertRow(0);
+            y.style.height="10%";
+            const b = y.insertCell(0);
+            b.style.width="20%";
+            b.innerHTML="PANCAKE";
+            const d = y.insertCell(1);
+            d.style.width="16%";
+            const e = prompt("quantity");
+            d.innerHTML=e;
+            const a = [];
+            for(let i=2; i<6; i++)
+            {
+                a[i]=y.insertCell(i);
+                a[i].style.width="16%";
+            }
+            a[2].innerHTML=1*e+"gm";
+            a[3].innerHTML=11*e+"gm";
+            a[4].innerHTML=18*e+"gm";
+            a[5].innerHTML=120*e;
+            sim+=120*e;
+            document.getElementById("simran").innerHTML=sim+"kcal";
+            if(sau<sim)
+                alert("DON'T CROSS YOUR LIMIT");
+        }
+        function raj7()
+        {
+            const x = document.getElementById("saurav");
+            const y = x.insertRow(0);
+            y.style.height="10%";
+            const b = y.insertCell(0);
+            b.style.width="20%";
+            b.innerHTML="FRENCH FRIES";
+            const d = y.insertCell(1);
+            d.style.width="16%";
+            const e = prompt("quantity");
+            d.innerHTML=e;
+            const a = [];
+            for(let i=2; i<6; i++)
+            {
+                a[i]=y.insertCell(i);
+                a[i].style.width="16%";
+            }
+            a[2].innerHTML=0+"gm";
+            a[3].innerHTML=24*e+"gm";
+            a[4].innerHTML=28*e+"gm";
+            a[5].innerHTML=170*e;
+            sim+=170*e;
+            document.getElementById("simran").innerHTML=sim+"kcal";
+            if(sau<sim)
+                alert("DON'T CROSS YOUR LIMIT");
+        }
+        function raj8()
+        {
+            const x = document.getElementById("saurav");
+            const y = x.insertRow(0);
+            y.style.height="10%";
+            const b = y.insertCell(0);
+            b.style.width="20%";
+            b.innerHTML="ICE CREAM";
+            const d = y.insertCell(1);
+            d.style.width="16%";
+            const e = prompt("quantity");
+            d.innerHTML=e;
+            const a = [];
+            for(let i=2; i<6; i++)
+            {
+                a[i]=y.insertCell(i);
+                a[i].style.width="16%";
+            }
+            a[2].innerHTML=2*e+"gm";
+            a[3].innerHTML=19*e+"gm";
+            a[4].innerHTML=33*e+"gm";
+            a[5].innerHTML=110*e;
+            sim+=110*e;
+            document.getElementById("simran").innerHTML=sim+"kcal";
+            if(sau<sim)
+                alert("DON'T CROSS YOUR LIMIT");
+        }
+        function raj9()
+        {
+            const x = document.getElementById("saurav");
+            const y = x.insertRow(0);
+            y.style.height="10%";
+            const b = y.insertCell(0);
+            b.style.width="20%";
+            b.innerHTML="PROTEIN SHAKE(30gm)";
+            const d = y.insertCell(1);
+            d.style.width="16%";
+            const e = prompt("quantity");
+            d.innerHTML=e;
+            const a = [];
+            for(let i=2; i<6; i++)
+            {
+                a[i]=y.insertCell(i);
+                a[i].style.width="16%";
+            }
+            a[2].innerHTML=25*e+"gm";
+            a[3].innerHTML=11*e+"gm";
+            a[4].innerHTML=9*e+"gm";
+            a[5].innerHTML=120*e;
+            sim+=120*e;
+            document.getElementById("simran").innerHTML=sim+"kcal";
+            if(sau<sim)
+                alert("DON'T CROSS YOUR LIMIT");
+        }
+        function raj10()
+        {
+            const x = document.getElementById("saurav");
+            const y = x.insertRow(0);
+            y.style.height="10%";
+            const b = y.insertCell(0);
+            b.style.width="20%";
+            b.innerHTML="CANDY BARS";
+            const d = y.insertCell(1);
+            d.style.width="16%";
+            const e = prompt("quantity");
+            d.innerHTML=e;
+            const a = [];
+            for(let i=2; i<6; i++)
+            {
+                a[i]=y.insertCell(i);
+                a[i].style.width="16%";
+            }
+            a[2].innerHTML=1*e+"gm";
+            a[3].innerHTML=16*e+"gm";
+            a[4].innerHTML=29*e+"gm";
+            a[5].innerHTML=50*e;
+            sim+=50*e;
+            document.getElementById("simran").innerHTML=sim+"kcal";
+            if(sau<sim)
+                alert("DON'T CROSS YOUR LIMIT");
+        }
+        function raj11()
+        {
+            const x = document.getElementById("saurav");
+            const y = x.insertRow(0);
+            y.style.height="10%";
+            const b = y.insertCell(0);
+            b.style.width="20%";
+            b.innerHTML="HOT DOG";
+            const d = y.insertCell(1);
+            d.style.width="16%";
+            const e = prompt("quantity");
+            d.innerHTML=e;
+            const a = [];
+            for(let i=2; i<6; i++)
+            {
+                a[i]=y.insertCell(i);
+                a[i].style.width="16%";
+            }
+            a[2].innerHTML=3*e+"gm";
+            a[3].innerHTML=17*e+"gm";
+            a[4].innerHTML=24*e+"gm";
+            a[5].innerHTML=150*e;
+            sim+=150*e;
+            document.getElementById("simran").innerHTML=sim+"kcal";
+            if(sau<sim)
+                alert("DON'T CROSS YOUR LIMIT");
+        }
+        function raj12()
+        {
+            const x = document.getElementById("saurav");
+            const y = x.insertRow(0);
+            y.style.height="10%";
+            const b = y.insertCell(0);
+            b.style.width="20%";
+            b.innerHTML="FISH NUGGET";
+            const d = y.insertCell(1);
+            d.style.width="16%";
+            const e = prompt("quantity");
+            d.innerHTML=e;
+            const a = [];
+            for(let i=2; i<6; i++)
+            {
+                a[i]=y.insertCell(i);
+                a[i].style.width="16%";
+            }
+            a[2].innerHTML=10*e+"gm";
+            a[3].innerHTML=19*e+"gm";
+            a[4].innerHTML=37*e+"gm";
+            a[5].innerHTML=180*e;
+            sim+=180*e;
+            document.getElementById("simran").innerHTML=sim+"kcal";
+            if(sau<sim)
+                alert("DON'T CROSS YOUR LIMIT");
+        }
+        function saurav()
+        {
+            const a = [];
+            a[0]=document.getElementById("sau1").value;
+            a[1]=document.getElementById("sau2").value;
+            a[2]=document.getElementById("sau3").value;
+            sau=18*a[1]+6.25*a[2]-5*a[0]+5;
+            document.getElementById("sau4").innerHTML=18*a[1]+6.25*a[2]-5*a[0]+5+"KCAL";
+        }
+        function simran()
+        {
+            const x = document.getElementById("sau6").value;
+            if(x===1)
+                document.getElementById("sau5").innerHTML="DRINK UP";
+            if(x===2)
+                document.getElementById("sau5").innerHTML="WOW";
+            if(x===3)
+                document.getElementById("sau5").innerHTML="AWESOME";
+            if(x===4)
+                document.getElementById("sau5").innerHTML="AWESOME";
+            if(x===5)
+                document.getElementById("sau5").innerHTML="YOU ROCK";
+            if(x===6)
+                document.getElementById("sau5").innerHTML="WOW";
+            if(x===7)
+                document.getElementById("sau5").innerHTML="HALF-WAY THERE";
+            if(x===8)
+                document.getElementById("sau5").innerHTML="WAY TO GO";
+            if(x===9)
+                document.getElementById("sau5").innerHTML="COOL";
+            if(x>=10)
+                document.getElementById("sau5").innerHTML="YOU MADE IT";
+            if(x>=11)
+                document.getElementById("sau5").innerHTML="CONTROL YOURSELF FOR NEXT 60 MINUTES"
+        }
+    </script>
+</head>
+<body>
+<div>
+    <b class="s"><marquee>CALORIES COUNTER!!!!</marquee></b>
+    <h1><b>ADD YOUR FOOD:</b></h1>
+    <b>TOTAL CALORIES:</b>
+    <b id="simran"></b>
+    <table width="100%" height="7%" border=3>
+        <tr class="d">
+            <td width="20%">FOOD</td>
+            <td width="16%">QUANTITY</td>
+            <td width="16%">PROTEIN</td>
+            <td width="16%">FAT</td>
+            <td width="16%">CARBS</td>
+            <td>CALORIES<br>(KCAL)</td>
+        </tr>
+    </table>
+    <table id="saurav" width="100%" height="74.2%" border=3>
+        <tr class="d">
+        </tr>
+    </table>
+    <table class="a">
+        <tr>
+            <td ><b>SELECT YOUR DISH!!!</b></td>
+        </tr>
+        <tr>
+            <td><button onclick="raj();">1.POACHED EGG</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="raj1();">2.SANDWICH</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="raj2();">3.PIZZA</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="raj3();">4.BURGER</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="raj4();">5.EGG ROLL</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="raj5();">6.COKE(500ML)</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="raj6();">7.PANCAKE</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="raj7();">8.FRENCH FRIES(100GM)</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="raj8();">9.ICE CREAM</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="raj9();">10.PROTEIN SHAKE(30GM)</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="raj10();">11.CANDY BARS</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="raj11();">12.HOT DOG</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="raj12();">13.FISH NUGGET(100GM)</button></td>
+        </tr>
+    </table>
+</div>
+<div class="b">
+    <p><b><marquee class="r">SET YOUR GOAL !!!</marquee></b></p>
+    <b>AGE:<label for="sau1"></label><input id="sau1">yr</b><br>
+    <b>WEIGHT:<label for="sau2"></label><input id="sau2">kg&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
+    <b>HEIGHT:<label for="sau3"></label><input id="sau3">cm&nbsp;&nbsp;&nbsp;</b><br><br>
+    <button onclick="saurav();"><b>proceed</b></button><br><br>
+    <b>IDEAL TARGET CALORIES<b><br>
+        <b class="x" id="sau4"></b>
+    </b>
+    </b>
+</div>
+
+<div class="e">
+    <p><b><marquee class="r">WATER INTAKE!!</marquee></b></p><br><br>
+    <b>GLASS(250ML):<label for="sau6"></label><input id="sau6" type="number" onclick="simran();">
+        <br><br>
+        <b id="sau5"></b>
+    </b>
+</div>
+
+
+</body>
+</html>
