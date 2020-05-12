@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Login_lab2</string>
+    <string name="facebook_app_id">863915120757580</string>
+    <string name="fb_login_protocol_scheme">fb863915120757580</string>
+    <string name="title_activity_main2">UserProfile</string>
+    <string name="appbar_scrolling_view_behavior">Scrolling</string>
+    <string name="hello_world">Hello World</string>
+    <string name="textview">TextView</string>
+    <string name="logout">Logout</string>
+    <string name="hello">Hello</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Sign in</string>
+    <string name="please_enter_valid_username_password">Please enter valid Username/ Password</string>
+</resources>
