@@ -1,0 +1,93 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+    <script src='functions.js'></script>
+    <script type="text/javascript"></script>
+
+    <title>BMI Calculator</title>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark rightBar" style="background-image:linear-gradient(45deg, #5db0b3 0%, #b8eaee 100%);margin:0;">
+    <a class="navbar-brand" href="../mainIndex.html">Calories Tracker</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
+            aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="../BMI/index.html">BMI</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../calories-counter/index.html">Insert Calories</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../calories-counter-API/CaloriesAPI.html">Calories Search</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../recipe/index.html">Recipes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../exercises/index.html">Exercise</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../Keto/KetoIndex.html">Keto</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class='container'>
+    <ul>
+        <li><a href='#'><i class="fas fa-running"></i>BMI calculator</a></li>
+        <li><a href='#'><i class="fas fa-hamburger"></i>Calories Calculator</a></li>
+        <li><a href='#'><i class="fas fa-apple-alt"></i>Fat calculator</a></li>
+    </ul>
+
+</div>
+<div id='heh'>
+    <h1>Provide the details</h1>
+    <p>WEIGHT</p>
+    <label for='weigth'></label><input type='text' id='weigth' placeholder="Your weight">
+    <p class='height'>HEIGHT</p>
+    <label for='height'></label><input type='text' id='height' placeholder="Your height">
+    <p id='activ'>ACTIVITY</p>
+    <button class='activity' placeholder="Your activity">-Choose Activity-</button>
+    <button class='activity2' placeholder="Your sex">-Choose Sex-</button>
+    <div class='list'>
+        <ol id='test'>
+            <li id='1' value='1.0'><a href='#'>No Activity</a></li>
+            <li id='2' value='1.4'><a href='#'>Low Activity</a></li>
+            <li id='3' value='1.8'><a href='#'>Middle Activity</a></li>
+            <li id='4' value='2.2'><a href='#'>High Activity</a></li>
+        </ol>
+    </div>
+
+    <div class='list2'>
+        <ol>
+            <li value='0.512'><a href='#'>Man</a></li>
+            <li value='0.760'><a href='#'>Woman</a></li>
+        </ol>
+    </div>
+    <br/>
+    <button id='check'><strong>CHECK</strong></button>
+    <div id='display'></div>
+    <div id='help'></div>
+
+</div>
+</body>
+</html>

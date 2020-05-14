@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+          crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <title>Food Search</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark rightBar" style="background-image:linear-gradient(45deg, #5db0b3 0%, #b8eaee 100%);margin:0;">
+    <a class="navbar-brand" href="../mainIndex.html">Calories Tracker</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
+            aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="../BMI/index.html">BMI</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../calories-counter/index.html">Insert Calories</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../calories-counter-API/CaloriesAPI.html">Calories Search</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../recipe/index.html">Recipes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../exercises/index.html">Exercise</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../Keto/KetoIndex.html">Keto</a>
+            </li>
+        </ul>
+    </div>
+
+</nav>
+
+<div id="myDiv" style="width: 100%; height: 700px;"></div>
+
+<form class="pure-form">
+    <input type="text" class="pure-input-rounded" id='txtValue'>
+    <input type="button" value="submit" onclick="searchFood(document.getElementById('txtValue').value)" />
+</form>
+
+<script>
+
+    function searchFood(value){
+        keyword=value;
+        plotFigure(keyword);
+    }
+    function plotFigure(keyword){
+        if(typeof keyword!=='undefined'){
+            let data = {};
+            $.ajax({
+                async:false,
+                url:'https://api.nutritionix.com/v1_1/search/'+keyword+'?results=0%3A10&type=2&fields=item_name%2Citem_id%2Cbrand_name%2Cnf_calories%2Cnf_total_fat%2Cnf_total_carbohydrate%2Cnf_protein%2Cnf_serving_weight_grams&appId=1f56dd14&appKey=4045e1ee0c046c2c47a50b2cf336e57b',
+                success: function(d){
+                    data=d;
+                }
+            });
+
+            const nfCalories = [];
+            const nfTotalFat = [];
+            const nfProtein = [];
+            const nfCarboHydrate = [];
+            const nfScore = [];
+            const nfWeight = [];
+            const x = [];
+            for (let i=0; i<data.hits.length; i++){
+                x[i]=data.hits[i].fields.brand_name.concat(data.hits[i].fields.item_name);
+                nfWeight[i]=data.hits[i].fields.nf_serving_weight_grams;
+                nfCalories[i]=data.hits[i].fields.nf_calories;///nfWeight[i]
+                nfTotalFat[i]=data.hits[i].fields.nf_total_fat*10;///nfWeight[i]
+                nfScore[i]=data.hits[i]._score*10;
+                nfProtein[i]=data.hits[i].fields.nf_protein*10;///nfWeight[i]
+                nfCarboHydrate[i]=data.hits[i].fields.nf_total_carbohydrate*10;///nfWeight[i]
+
+            }
+
+            const trace1 = {
+                x: x,
+                y: nfCalories,
+                name: 'calories',
+                type: 'scatter'
+            };
+            const trace2 = {
+                x: x,
+                y: nfTotalFat,
+                name: 'fat',
+                type: 'scatter'
+            };
+            const trace3 = {
+                x: x,
+                y: nfScore,
+                name: 'score',
+                type: 'bar'
+            };
+            const trace4 = {
+                x: x,
+                y: nfProtein,
+                name: 'protein',
+                type: 'scatter'
+            };
+            const trace5 = {
+                x: x,
+                y: nfCarboHydrate,
+                name: 'carbohydrate',
+                type: 'scatter'
+            };
+            const trace6 = {
+                x: x,
+                y: nfWeight,
+                name: 'weight',
+                type: 'scatter'
+            };
+            const plotdata = [trace1, trace2, trace4, trace5, trace3];
+            const layout = {
+                title: keyword,
+                xaxis: {
+                    title: 'Products',
+                    titlefont: {
+                        family: 'Courier New, monospace',
+                        size: 18,
+                        color: '#7f7f7f'
+                    }
+                },
+                yaxis: {
+                    title: 'Value (kcal,g*10,g*10,g*10)',
+                    titlefont: {
+                        family: 'Courier New, monospace',
+                        size: 18,
+                        color: '#7f7f7f'
+                    }
+                }
+            };
+            Plotly.newPlot('myDiv', plotdata, layout);
+        }
+    }
+
+</script>
+    <h1><strong>Enter a keyword of food (e.g., pork), and then click "submit" button.
+        The figure shows the top 10 food products from Nutritionix API with highest score indicated by the bar. The line plots show the 3 main elements of food: the fat, the protein, and the carbohydrate, and the total calories, as well.</strong></h1>
+
+</div>
+
+</body>
+</html>

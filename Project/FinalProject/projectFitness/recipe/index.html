@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Get a meal</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+          crossorigin="anonymous">
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark rightBar" style="background-image:linear-gradient(45deg, #5db0b3 0%, #b8eaee 100%);margin:0;">
+    <a class="navbar-brand" href="../mainIndex.html">Calories Tracker</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
+            aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="../BMI/index.html">BMI</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../calories-counter/index.html">Insert Calories</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../calories-counter-API/CaloriesAPI.html">Calories Search</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../recipe/index.html">Recipes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../exercises/index.html">Exercise</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../Keto/KetoIndex.html">Keto</a>
+            </li>
+        </ul>
+    </div>
+
+</nav>
+<div id="nav-bar"></div>
+<h1>Finding your Yummy Recipe</h1>
+<div class="search-container">
+    <h3>We pick for you?<button class="order">Click!</button></h3>
+    <form class="search">
+        <input type="text" name="keyword" placeholder="Name the main ingredient"><button type="submit">GO!</button>
+    </form>
+</div>
+
+<div class="meal-container"></div>
+
+<script>
+
+    function randomMeal() {
+        fetch('https://www.themealdb.com/api/json/v1/1/random.php')
+            .then(resp => resp.json())
+            .then(data => {
+                const meal = data.meals[0];
+                displayMeal(meal);
+            });
+        document.body.classList.add('open');
+    };
+
+    function mealByName(e) {
+        e.preventDefault();
+        const text = document.querySelector('input[type=text]').value;
+        fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${text}`)
+            .then(resp => resp.json())
+            .then(data => {
+                let meal;
+                data.meals === null ? meal = false: meal = data.meals[0];
+                displayMeal(meal);
+            });
+        document.body.classList.add('open');
+    }
+
+    function displayMeal(m) {
+        if(!m) {
+            return mealContainer.innerHTML = `
+					<h3>Sorry! No meal of this ingredient.</h3>
+				`
+        }
+        const { strMeal, strCategory, strArea, strInstructions,
+            strMealThumb, strYoutube } = m;
+
+        const instructions = strInstructions.split('.')
+        const displayInst = instructions.map(sentence => {
+            if(!sentence) { return null };
+            return `
+					<li>${sentence}</li>
+					`
+        }).join('');
+
+        let ingredients = [];
+        for(let i = 1; i <= 20; i++) {
+            if(m[`strIngredient${i}`]) {
+                ingredients.push(`${m[`strIngredient${i}`]} - ${m[`strMeasure${i}`]}`)
+            } else {
+                //break to get out of for loop and continue; return to get out of function
+                break;
+            }
+        }
+
+        const ingredientList = ingredients.map(ingredient => {
+            return `
+					<li>${ingredient}</li>
+				`
+        }).join('');
+
+        mealContainer.innerHTML = `
+				<img src="${strMealThumb}" alt="meal picture">
+				<div class="details">
+					<div class="name">${strMeal}</div>
+					<div class='tags'>#${strCategory} #${strArea}</div>
+					<ul class="ingredients">
+						${ingredientList}
+					</ul>
+				</div>
+				<div class="instructions">
+					<h3>Instructions</h3>
+					<ol>
+						${displayInst}
+					</ol>
+				</div>
+					<iframe width="500" height="350"  src="https://www.youtube.com/embed/${strYoutube.slice(-11)}"></iframe>
+					`
+    }
+
+    const mealContainer = document.querySelector('.meal-container');
+    const orderButton = document.querySelector('.order');
+    const searchName = document.querySelector('.search');
+
+    orderButton.addEventListener('click', randomMeal);
+    searchName.addEventListener('submit', mealByName);
+
+</script>
+</body>
+</html>

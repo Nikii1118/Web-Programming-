@@ -1,0 +1,24 @@
+body {
+
+    color: white;
+    background-image: url(calories.jpeg);
+    background-size: cover;
+    height: 100vh;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    text-align: center;
+
+}
+
+.verde-principal {
+    background: #5db0b3;
+}
+
+.verde-claro {
+    background: #b8eaee;
+}
+
+.purple-btn {
+    background: #b8eaee;
+    border: none;
+}

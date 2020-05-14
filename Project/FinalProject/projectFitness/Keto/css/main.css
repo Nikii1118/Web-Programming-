@@ -1,0 +1,79 @@
+body {
+    font: normal 20px Avenir, Georgia, Helvetica;
+    color: #0f6674;
+}
+
+h1 {
+    font-size: 75px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 45px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+h3 {
+    font-size: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+h4 {
+    font-size: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+h5 {
+    font-size: 20px;
+    padding-bottom: 10px;
+}
+
+p {
+    padding-bottom: 10px;
+}
+
+em {
+    font-style: italic;
+}
+
+
+ol li {
+    list-style-type: decimal;
+    padding-bottom: 10px;
+}
+
+
+strong {
+    font-weight: bold;
+}
+
+label {
+    font-size: 30px;
+}
+
+
+.container {
+    padding: 15px;
+}
+
+#bottom-of-page {
+    clear: both;
+}
+
+
+
+.whats-this {
+    list-style-type: circle;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+}
+

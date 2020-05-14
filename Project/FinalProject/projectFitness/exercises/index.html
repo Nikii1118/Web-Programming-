@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Exercise</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+          crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="exercise_home.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="page1.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+<div id="heading">
+<nav class="navbar navbar-expand-lg navbar-dark rightBar" style="background-image:linear-gradient(45deg, #5db0b3 0%, #b8eaee 100%);margin:0;">
+    <a class="navbar-brand" href="../mainIndex.html">Calories Tracker</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
+            aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="../BMI/index.html">BMI</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../calories-counter/index.html">Insert Calories</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../calories-counter-API/CaloriesAPI.html">Calories Search</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../recipe/index.html">Recipes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../exercises/index.html">Exercise</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../Keto/KetoIndex.html">Keto</a>
+            </li>
+        </ul>
+    <div>
+
+    </div>
+    </div>
+</nav>
+</div>
+
+
+<div class="sideshift" id="lefty"></div>
+<div class="sideshift" id="righty"></div>
+
+<div id = "li">
+    <a href="index.html"></a>
+</div>
+<div id="buttons">
+    <ul>
+        <a href="abs_workout.html"><li>ABS WORKOUT</li></a>
+        <a href="stretching.html"><li>STRETCHING</li></a>
+        <a href="cardio.html"><li>CARDIO</li></a>
+        <a href="lose_belly_fat.html"><li>LOSE BELLY FAT</li></a>
+    </ul>
+</div>
+
+<script>
+    window.onscroll = function() {myFunction()};
+
+    const header = document.getElementById("myHeader");
+    var sticky = header.offsetTop;
+
+    function myFunction() {
+        if (window.pageYOffset > sticky) {
+            header.classList.add("sticky");
+        } else {
+            header.classList.remove("sticky");
+        }
+    }
+</script>
+
+<div id="tablevid">	</div>
+
+<div>
+    <div class="aevid"><h4>STRETCHING</h4></div>
+    <div class="divex"></div>
+    <table>
+        <tr>
+            <td>
+                <iframe	source src = "https://www.youtube.com/embed/yt3CpkmFAfc"></iframe>
+                <p>Physio Neck Exercises</p>
+            </td>
+            <td>
+                <iframe	source src = "https://www.youtube.com/embed/hSaqjF0dMMg"></iframe>
+                <p>Triceps Stretch</p>
+            </td>
+            <td>
+                <iframe	source src = "https://www.youtube.com/embed/bOf2AOpG4qM"></iframe>
+                <p>Hamstring Stretches</p>
+            </td>
+            <td>
+                <iframe	source src = "https://www.youtube.com/embed/NG9qbvAN3gQ"></iframe>
+                <p>Hip Stretch</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <iframe
+                        source src = "https://www.youtube.com/embed/SCfQLw4gDgM">
+                </iframe>
+                <p>Thigh Stretch</p>
+            </td>
+            <td>
+                <iframe   name="killersites.com"
+                          source src = "https://www.youtube.com/embed/F9kAhmmlils">
+                </iframe>
+                <p>Split Exercises</p>
+            </td>
+            <td>
+                <iframe
+                        source src = "https://www.youtube.com/embed/aEYgYkdr42Y">
+                </iframe>
+                <p>Sitting Stretches</p>
+            </td>
+            <td>
+                <iframe source src = "https://www.youtube.com/embed/xGOrRFfCYFo"></iframe>
+                <p>Upward Extended Pose</p>
+            </td>
+        </tr>
+    </table>
+    <a id="st" href="stretching.html"><div id="more">MORE</div></a>
+</div>
+
+<div>
+    <div class="aevid"><h4>ABS WORKOUT</h4></div>
+    <div class="divex"></div>
+    <table>
+        <tr>
+            <td>
+                <iframe
+                        source src = "https://www.youtube.com/embed/JXJK1AKoy-o">
+                </iframe>
+                <p>Cross Arm Crunch</p>
+            </td>
+            <td>
+                <iframe
+                        source src = "https://www.youtube.com/embed/vVVlXA0dqGg">
+                </iframe>
+                <p>Reverse Crunches</p>
+            </td>
+            <td>
+                <iframe
+                        source src = "https://www.youtube.com/embed/ko3ivGZQl6w">
+                </iframe>
+                <p>Straight Arm Plank</p>
+            </td>
+            <td>
+                <iframe
+                        source src = "https://www.youtube.com/embed/wiFNA3sqjCA">
+                </iframe>
+                <p>Bird Dog</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <iframe
+                        source src = "https://www.youtube.com/embed/3fDjzzfovZE">
+                </iframe>
+                <p>Long Arm Crunch</p>
+            </td>
+            <td>
+                <iframe
+                        source src = "https://www.youtube.com/embed/QMc0VQNZKvw">
+                </iframe>
+                <p>Mountain Climber</p>
+            </td>
+            <td>
+                <iframe
+                        source src = "https://www.youtube.com/embed/eUl1Ttx8b98">
+                </iframe>
+                <p>Jumping Squats</p>
+            </td>
+            <td>
+                <iframe
+                        source src = "https://www.youtube.com/embed/9FGilxCbdz8">
+                </iframe>
+                <p>Bicycle Crunch</p>
+            </td>
+        </tr>
+    </table>
+    <a href="abs_workout.html"><div id="more">MORE</div></a>
+</div>
+
+<div>
+    <div class="aevid"><h4>CARDIO</h4></div>
+    <div class="divex"></div>
+    <table>
+        <tr>
+            <td>
+                <iframe
+                        source src = "https://www.youtube.com/embed/XR0xeuK5zBU">
+                </iframe>
+                <p>Jumping Jacks</p>
+            </td>
+            <td>
+                <iframe
+                        source src = "https://www.youtube.com/embed/QPfOZ0e30xg">
+                </iframe>
+                <p>High Knee Run</p>
+            </td>
+            <td>
+                <iframe
+                        source src = "https://www.youtube.com/embed/QF0BQS2W80k">
+                </iframe>
+                <p>Front Lunges</p>
+            </td>
+            <td>
+                <iframe
+                        source src = "https://www.youtube.com/embed/rvqLVxYqEvo">
+                </iframe>
+                <p>Side Lunges</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <iframe
+                        source src = "https://www.youtube.com/embed/UXJrBgI2RxA">
+                </iframe>
+                <p>Squats</p>
+            </td>
+            <td>
+                <iframe   name="killersites.com"
+                          source src = "https://www.youtube.com/embed/l24yWbCx3Ig">
+                </iframe>
+                <p>Boxer Shuffle</p>
+            </td>
+            <td>
+                <iframe
+                        source src = "https://www.youtube.com/embed/-dtvAxibgYQ">
+                </iframe>
+                <p>Butt Kicks</p>
+            </td>
+            <td>
+                <iframe
+                        source src = "https://www.youtube.com/embed/R36VgAhJRWo">
+                </iframe>
+                <p>Fly Jacks</p>
+            </td>
+        </tr>
+    </table>
+    <a href="cardio.html"><div id="more">MORE</div></a>
+</div>
+
+<div>
+    <div class="aevid"><h4>LOSE BELLY FAT</h4></div>
+    <div class="divex"></div>
+    <table>
+        <tr>
+            <td>
+                <iframe
+                        source src = "https://www.youtube.com/embed/rXAbcneAr3I">
+                </iframe>
+                <p>Glute Bridge</p>
+            </td>
+            <td>
+                <iframe
+                        source src = "https://www.youtube.com/embed/YPgWAggfJ5E">
+                </iframe>
+                <p>Inverted Shoulder Press</p>
+            </td>
+            <td>
+                <iframe
+                        source src = "https://www.youtube.com/embed/2Yeq_438v5o">
+                </iframe>
+                <p>Skater Hops</p>
+            </td>
+            <td>
+                <iframe
+                        source src = "https://www.youtube.com/embed/KlJqjBqpnjw">
+                </iframe>
+                <p>Skipping</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <iframe
+                        source src = "https://www.youtube.com/embed/JRTp6FTgsPE">
+                </iframe>
+                <p>Lying Leg Rotation</p>
+            </td>
+            <td>
+                <iframe   name="killersites.com"
+                          source src = "https://www.youtube.com/embed/cc6UVRS7PW4">
+                </iframe>
+                <p>Superman Exercise</p>
+            </td>
+            <td>
+                <iframe
+                        source src = "https://www.youtube.com/embed/dHSIerbp-CE">
+                </iframe>
+                <p>Leg Lifts</p>
+            </td>
+            <td>
+                <iframe
+                        source src = "https://www.youtube.com/embed/PpGKoYlzovc">
+                </iframe>
+                <p>Inverted V Plank</p>
+            </td>
+        </tr>
+    </table>
+    <a href="lose_belly_fat.html"><div id="more">MORE</div></a>
+</div>
+
+<div id="bottom_most">
+    <div id="comments">
+        <h1>C</h1>
+        <h5>COMMENT</h5>
+    </div>
+    <label>
+        <textarea name="com" class="input" type="text">Type your comment here...</textarea>
+    </label>
+    <br><button>SUBMIT</button>
+</div>
+</body>
+</html>

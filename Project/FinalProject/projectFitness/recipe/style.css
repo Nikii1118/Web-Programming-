@@ -1,0 +1,121 @@
+body {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background: rgba(0, 0, 0, 0.3) url('calories.jpeg');
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    font-family: Verdana, fantasy;
+}
+
+/* opening title */
+h1 {
+    font-family: 'Lobster', serif;
+    font-size: 4rem;
+    margin-top: 25vh;
+    letter-spacing: 2px;
+}
+
+/*=========================*/
+/* recipe search container */
+/*=========================*/
+h3 {
+    font-size: 1.5rem;
+}
+h3 button {
+    background-color: #5db0b3;
+    border: none;
+    width: 6rem;
+    height: 2rem;
+    margin: 0 1rem;
+    border-radius: 5px;
+}
+form {
+    display: flex;
+    justify-content: center;
+}
+input {
+    width: 300px;
+    height: 2rem;
+    background-color: white;
+    padding: 0;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    font-size: 1.3rem;
+}
+form button {
+    background-color: #5db0b3;
+    border: none;
+    width: 6rem;
+    height: 2rem;
+    border-radius: 0 5px 5px 0;
+}
+
+form button,
+h3 button {
+    font-family: Arial;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* when recipe is displayed */
+.open h1 {
+    display: none;
+}
+.open .search-container {
+    margin-top: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*=========================*/
+/* recipe container */
+/*=========================*/
+.meal-container {
+    box-sizing: border-box;
+    width: 70vw;
+    margin: auto;
+    background-color: white;
+    color: black;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+.meal-container img {
+    width: 40%;
+    height: 40%;
+    margin: 1.5rem;
+    box-shadow: 3px 3px 5px grey;
+}
+.meal-container .details {
+    width: 40%;
+    padding: 2rem 1rem;
+    text-align: left;
+}
+.meal-container .details .name {
+    font-size: 2.5rem;
+    font-family: 'Lobster';
+    padding: 1rem;
+}
+.meal-container .details .tags {
+    padding-left: 1rem;
+}
+.meal-container .details .ingredients {
+    box-sizing: border-box;
+    padding: 1rem 3rem;
+    background-color: #FFF69B;
+}
+
+.meal-container .instructions {
+    text-align: left;
+    width: 70%;
+    padding-bottom: 50px;
+}
+iframe {
+    margin-bottom: 50px;
+}

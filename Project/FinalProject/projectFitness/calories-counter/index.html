@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Calories Counter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+          integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark rightBar" style="background-image:linear-gradient(45deg, #5db0b3 0%, #b8eaee 100%);margin:0;">
+    <a class="navbar-brand" href="../mainIndex.html">Calories Tracker</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
+            aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="../BMI/index.html">BMI</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../calories-counter/index.html">Insert Calories</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../calories-counter-API/CaloriesAPI.html">Calories Search</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../recipe/index.html">Recipes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../exercises/index.html">Exercise</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../Keto/KetoIndex.html">Keto</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-9">
+            <div class="card my-5 bg-light text-center">
+                <div class="card-header verde-principal">
+                    <h1>Calories Counter</h1>
+                </div>
+                <div class="card-body verde-claro">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th scope="col">Description</th>
+                            <th scope="col">Calories</th>
+                            <th scope="col">Carbs</th>
+                            <th scope="col">Protein</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        </tbody>
+
+                        <thead>
+                        <tr class="verde-principal">
+                            <th>Totals</th>
+                            <th id="totalCalories">0</th>
+                            <th id="totalCarbs">0</th>
+                            <th id="totalProtein">0</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="card-footer verde-principal">
+                    <div class="row mb-2">
+                        <div class="col">
+                            <input type="text" class="form-control mb-2 mr-sm-2" id="description" placeholder="Description">
+                        </div>
+                        <div class="col">
+                            <input type="number" min="0" class="form-control mb-2 mr-sm-2" id="calories" placeholder="Calories">
+                        </div>
+                        <div class="col">
+                            <input type="number" min="0" class="form-control mb-2 mr-sm-2" id="carbs" placeholder="Carbs">
+                        </div>
+                        <div class="col">
+                            <input type="number" min="0" class="form-control mb-2 mr-sm-2" id="protein" placeholder="Protein">
+                        </div>
+
+                        <div class="col">
+                            <button class="btn purple-btn btn-primary mb-2" onclick="validateInputs()">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>
