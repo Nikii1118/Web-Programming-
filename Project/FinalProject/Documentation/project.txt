@@ -1,0 +1,1366 @@
+function.js/BMI
+$(function() {
+    $('.container li a').each(function() {
+        const cont_text = $(this).text()
+        $(this).click(function(){
+            if(cont_text==='BMI calculator')
+            {
+                $('#heh, .height, #height' ).show('slow', function() {
+                });
+                $('#weigth').val('');
+                $('#height').val('');
+                $('#display').empty();
+                $('#display').css('background-color', '')
+                $('#check').click(function(){ ////function called after button click
+                    bmi();
+                })
+                $('.activity, .activity2, #activ, .list').hide('slow', function() {
+                });
+
+            }
+            else if(cont_text==="Calories Calculator")
+            {   $('#display').css('background-color', '')
+                $('#heh' ).show('slow', function() {
+                });
+                $('.activity').text('-Choose Activity-')
+                $('#activ').text('Activity')
+                $( ".activity" ).show('fast', function(){
+
+                })
+                $('#weigth').val('');
+                $('#height').val('');
+                $('#display').empty();
+
+
+                $('#activ').show('slow', function() {
+                });
+
+                $('#check').click(function(){ ////function called after button click
+                    calories_calculator();
+                })
+                $('#height, .height, .activity2, .list2').hide('slow', function() {
+                });
+                $('#weigth').val('');
+
+
+
+            }
+            else
+
+            {       $('#display').css('background-color', '')
+                $('.activity2').text('-Choose Sex-')
+                $('#weigth').val('');
+                $('#height').val('');
+                $('#display').empty();
+                $('#check').click(function(){ ////function called after button click
+                    fat();
+                })
+                $('#height, .height, .activity, .list').hide('slow', function() {
+                });
+                $('#activ').text('Sex')
+                $('#heh, #activ, .activity2, .height, #height' ).show('slow', function() {
+                });
+
+
+
+
+
+
+
+            }
+
+
+        })
+    });
+});
+
+
+
+$(function() {
+    $('#test2').click(function() {
+        $('.activity, #activ').show('slow', function() {
+        });
+        $('#weigth').val('');
+        $('#height').val('');
+    });
+});
+
+$(function() {
+    $('.activity').click(function() {
+        $('.list').show('slow', function() {
+        });
+    });
+});
+
+$(function() {
+    $('.activity2').click(function() {
+
+        $('.list2').show('slow', function() {
+        });
+
+    });
+});
+
+$(function(){
+    $('#check').click(function(){
+        $('#display').css('background-color', '#fff')
+
+    });
+});
+$(function(){                                 ///// loop for drop down list
+    $('.list li').each(function(){
+        $(this).click(function(){
+            $('.list').hide('slow', function() {
+            });
+            const text  = $(this).text()
+            const atr  = $(this).attr('value')
+            $('.activity').text(text)
+            $('#help').val(atr)
+
+
+
+
+
+        })
+    })
+})
+
+$(function(){                                 ///// loop for drop down list
+    $('.list2 li').each(function(){
+        $(this).click(function(){
+            $('.list2').hide('slow', function() {
+            });
+            const text  = $(this).text()
+            const atr  = $(this).attr('value')
+            $('.activity2').text(text)
+            $('#help').val(atr)
+
+
+
+        })
+    })
+})
+
+
+function bmi()
+{
+    let a = document.getElementById("weigth").value;
+    let b = document.getElementById("height").value;
+    a = Math.floor(100*a) / 100;
+    b = Math.floor(100*b) / 100;
+    const c = Math.round(a / (b * b) * 10000);
+
+    if((isNaN(a)) || (isNaN(b)) || a==='' || b==='')
+    {
+        document.getElementById("display").innerHTML = "Some of data provided is incorrect";
+    }
+    else
+    {
+        for(let i=0; i<=1; i++)
+        {
+            if(c<16)
+            {
+                display.style.color='rgba(216, 37, 6, 0.856)';
+                document.getElementById("display").innerHTML = "Your bmi: "+c+", You are almost dead!";
+                continue;
+            }
+
+            else if ((c>16) && (c<=18.3))
+            {
+                display.style.color='rgba(224, 169, 17, 0.76)';
+                document.getElementById("display").innerHTML = "Your bmi: "+c+", You should eat more";
+                continue;
+            }
+            else if ((c>18.4) && (c<=24.99))
+            {
+                display.style.color='green';
+                document.getElementById("display").innerHTML = "Your bmi: "+c+", All is fine";
+                continue;
+            }
+            else if ((c>24.99) && (c<=29.99))
+            {
+                display.style.color='rgba(224, 169, 17, 0.76)';
+                document.getElementById("display").innerHTML = "Your bmi: "+c+", You eat too much!!";
+                continue;
+            }
+            else
+            {
+                display.style.color='rgba(216, 37, 6, 0.856)';
+                document.getElementById("display").innerHTML = "Your bmi: "+c+", You are really obsessed!!";
+                continue;
+            }
+
+
+
+        }
+    }
+
+
+}
+function calories_calculator()
+{
+    $('#display').css('color', '#000')
+    let a = document.getElementById('weigth').value;
+    let b = parseFloat(document.getElementById('help').value);
+    a = Math.floor(100*a) / 100;
+    b = Math.floor(100*b) / 100;
+    const c = Math.round(((a * 24) * b));
+    if((isNaN(a)) || a==='')
+    {
+        document.getElementById('display').innerHTML = 'Some data provided is incorrect';
+    }
+    else
+    {
+        document.getElementById('display').innerHTML = 'Your daily calorie need: '+c;
+    }
+}
+function fat()
+{
+    let a = document.getElementById('weigth').value;
+    const b = parseFloat(document.getElementById('help').value);
+    let d = document.getElementById('height').value;
+    let f;
+    a = Math.floor(100*a) / 100;
+    d = Math.floor(100*d) / 100;
+
+    if(isNaN(a) || isNaN(d) || a==='' || d==='')
+    {
+        document.getElementById('display').innerHTML = 'Values must be a numbers!';
+    }
+    else if($('.activity2').text() === "-Choose Sex-")
+    {
+        document.getElementById('display').innerHTML = 'You have to choose your sex!';
+    }
+    else
+    {
+        if(b ===0.512)
+        {
+            f = 0.089
+        }
+        else
+        {
+            f = 0.177
+        }
+        const score = Math.floor(b * a - f * d);
+        document.getElementById('display').innerHTML = 'Your fat percentage: '+score+'%';
+    }
+}
+index.html/BMI
+
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+    <script src='functions.js'></script>
+    <script type="text/javascript"></script>
+
+    <title>BMI Calculator</title>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark rightBar" style="background-image:linear-gradient(45deg, #5db0b3 0%, #b8eaee 100%);margin:0;">
+    <a class="navbar-brand" href="../mainIndex.html">Calories Tracker</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
+            aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="../BMI/index.html">BMI</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../calories-counter/index.html">Insert Calories</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../calories-counter-API/CaloriesAPI.html">Calories Search</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../recipe/index.html">Recipes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../exercises/index.html">Exercise</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../Keto/KetoIndex.html">Keto</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class='container'>
+    <ul>
+        <li><a href='#'><i class="fas fa-running"></i>BMI calculator</a></li>
+        <li><a href='#'><i class="fas fa-hamburger"></i>Calories Calculator</a></li>
+        <li><a href='#'><i class="fas fa-apple-alt"></i>Fat calculator</a></li>
+    </ul>
+
+</div>
+<div id='heh'>
+    <h1>Provide the details</h1>
+    <p>WEIGHT</p>
+    <label for='weigth'></label><input type='text' id='weigth' placeholder="Your weight">
+    <p class='height'>HEIGHT</p>
+    <label for='height'></label><input type='text' id='height' placeholder="Your height">
+    <p id='activ'>ACTIVITY</p>
+    <button class='activity' placeholder="Your activity">-Choose Activity-</button>
+    <button class='activity2' placeholder="Your sex">-Choose Sex-</button>
+    <div class='list'>
+        <ol id='test'>
+            <li id='1' value='1.0'><a href='#'>No Activity</a></li>
+            <li id='2' value='1.4'><a href='#'>Low Activity</a></li>
+            <li id='3' value='1.8'><a href='#'>Middle Activity</a></li>
+            <li id='4' value='2.2'><a href='#'>High Activity</a></li>
+        </ol>
+    </div>
+
+    <div class='list2'>
+        <ol>
+            <li value='0.512'><a href='#'>Man</a></li>
+            <li value='0.760'><a href='#'>Woman</a></li>
+        </ol>
+    </div>
+    <br/>
+    <button id='check'><strong>CHECK</strong></button>
+    <div id='display'></div>
+    <div id='help'></div>
+
+</div>
+</body>
+</html>
+
+style.css/BMI
+
+*
+{
+    padding: 0;
+    margin: 0;
+}
+
+body
+{
+    background-image: url(calories.jpeg);
+    background-size: cover;
+    height: 100vh;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    text-align: center;
+
+}
+input
+{
+    text-align: center
+}
+.container
+{
+    text-align: center;
+}
+
+
+.container ul
+{
+    background: rgba(223, 255, 251, 0.541);
+    filter: alpha(opacity=50);
+    text-align: center;
+    display: inline-flex;
+
+}
+
+.container ul li
+{
+    width: 400px;
+
+    margin-left: 50px;
+    padding-left: 70px;
+    margin-right: 10px;
+}
+
+.container ul li a
+{
+    text-decoration: none;
+    color: rgba(3, 9, 9, 0.82);
+}
+
+.container ul li a:hover
+{
+    border-radius: 3px;
+    color: #5db0b3;
+    background: rgba(255, 255, 255, 0.97);
+}
+
+.sub
+{
+    display: none;
+}
+
+#heh
+{
+    background-position: center;
+    background: rgb(93, 176, 179);
+    filter: alpha(opacity=50);
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    width: 500px;
+    height: 640px;
+    margin-bottom: auto;
+    display: none;
+}
+
+
+
+p
+{
+    margin-top: 10px;
+}
+#weigth, #height
+{
+
+    height: 30px;
+    margin-bottom: 50px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.activity
+{
+    height: 30px;
+    margin-bottom: 50px;
+    margin: 0px;
+    padding: 0px;
+    margin-bottom: auto;
+    width: 50%;
+    outline: 0;
+    background: #b8eaee;
+    border: 0;
+    padding: 10px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+.activity:hover
+{
+    background: #b8eaee;
+}
+.activity, #activ
+{
+    display: none;
+}
+.activity2
+{
+    display: none;
+    height: 30px;
+    margin-bottom: 50px;
+    margin: 0px;
+    padding: 0px;
+    margin-bottom: auto;
+    width: 50%;
+    outline: 0;
+    background: #b8eaee;
+    border: 0;
+    padding: 10px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+.activity2:hover
+{
+    background: #b8eaee;
+}
+
+
+#check
+{
+    margin-top: 70px;
+    width: 70%;
+    border: 0px;
+    padding: 15px;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    background-color: rgb(184, 234, 238);
+}
+
+#check:hover
+{
+    background-color: rgb(184, 234, 238);
+}
+
+#display
+{
+    margin-top: 40%;
+    background-position: bottom;
+    text-align: center;
+    font-weight: bold;
+    height: 10%;
+    font-weight: bold;
+    font-style: italic;
+    font-family: fantasy;
+}
+
+.list
+{
+    display: none;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.list li
+{
+    text-align: center;
+    display: block;
+    font-family: sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    border-bottom: 2px dotted #ffffff;
+    border-style: groove;
+    opacity: 25;
+    filter: alpha(opacity=25);
+    outline: 0;
+    background: #b8eaee;
+    filter: alpha(opacity=25);
+
+}
+
+.list li:first-child
+{
+    margin-top: 10px;
+}
+
+.list li a
+{
+    text-decoration: none;
+    color: rgb(255, 255, 255)
+}
+
+.list li a:hover
+{
+    color: #ffffff;
+
+}
+.list2
+{
+    display: none;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.list2 li
+{
+    text-align: center;
+    display: block;
+    font-family: sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    border-bottom: 2px dotted #ffffff;
+    border-style: groove;
+    opacity: 25;
+    filter: alpha(opacity=25);
+    outline: 0;
+    background: #b8eaee;
+    filter: alpha(opacity=25);
+
+}
+
+.list2 li:first-child
+{
+    margin-top: 10px;
+}
+
+.list2 li a
+{
+    text-decoration: none;
+    color: rgb(0, 0, 0)
+}
+
+.list2 li a:hover
+{
+    color: #ffffff;
+
+}
+
+.fas
+{
+    margin: 5px;
+}
+
+#help
+{
+    display: none;
+}
+
+index.html/calories-counter
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Calories Counter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+          integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark rightBar" style="background-image:linear-gradient(45deg, #5db0b3 0%, #b8eaee 100%);margin:0;">
+    <a class="navbar-brand" href="../mainIndex.html">Calories Tracker</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
+            aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="../BMI/index.html">BMI</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../calories-counter/index.html">Insert Calories</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../calories-counter-API/CaloriesAPI.html">Calories Search</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../recipe/index.html">Recipes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../exercises/index.html">Exercise</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../Keto/KetoIndex.html">Keto</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-9">
+            <div class="card my-5 bg-light text-center">
+                <div class="card-header verde-principal">
+                    <h1>Calories Counter</h1>
+                </div>
+                <div class="card-body verde-claro">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th scope="col">Description</th>
+                            <th scope="col">Calories</th>
+                            <th scope="col">Carbs</th>
+                            <th scope="col">Protein</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        </tbody>
+
+                        <thead>
+                        <tr class="verde-principal">
+                            <th>Totals</th>
+                            <th id="totalCalories">0</th>
+                            <th id="totalCarbs">0</th>
+                            <th id="totalProtein">0</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="card-footer verde-principal">
+                    <div class="row mb-2">
+                        <div class="col">
+                            <input type="text" class="form-control mb-2 mr-sm-2" id="description" placeholder="Description">
+                        </div>
+                        <div class="col">
+                            <input type="number" min="0" class="form-control mb-2 mr-sm-2" id="calories" placeholder="Calories">
+                        </div>
+                        <div class="col">
+                            <input type="number" min="0" class="form-control mb-2 mr-sm-2" id="carbs" placeholder="Carbs">
+                        </div>
+                        <div class="col">
+                            <input type="number" min="0" class="form-control mb-2 mr-sm-2" id="protein" placeholder="Protein">
+                        </div>
+
+                        <div class="col">
+                            <button class="btn purple-btn btn-primary mb-2" onclick="validateInputs()">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>
+
+main.css/calories-counter
+
+body {
+
+    color: white;
+    background-image: url(calories.jpeg);
+    background-size: cover;
+    height: 100vh;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    text-align: center;
+
+}
+
+.verde-principal {
+    background: #5db0b3;
+}
+
+.verde-claro {
+    background: #b8eaee;
+}
+
+.purple-btn {
+    background: #b8eaee;
+    border: none;
+}
+
+
+CaloriesAPI.html/API
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+          crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <title>Food Search</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark rightBar" style="background-image:linear-gradient(45deg, #5db0b3 0%, #b8eaee 100%);margin:0;">
+    <a class="navbar-brand" href="../mainIndex.html">Calories Tracker</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
+            aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="../BMI/index.html">BMI</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../calories-counter/index.html">Insert Calories</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../calories-counter-API/CaloriesAPI.html">Calories Search</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../recipe/index.html">Recipes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../exercises/index.html">Exercise</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../Keto/KetoIndex.html">Keto</a>
+            </li>
+        </ul>
+    </div>
+
+</nav>
+
+<div id="myDiv" style="width: 100%; height: 700px;"></div>
+
+<form class="pure-form">
+    <input type="text" class="pure-input-rounded" id='txtValue'>
+    <input type="button" value="submit" onclick="searchFood(document.getElementById('txtValue').value)" />
+</form>
+
+<script>
+
+    function searchFood(value){
+        keyword=value;
+        plotFigure(keyword);
+    }
+    function plotFigure(keyword){
+        if(typeof keyword!=='undefined'){
+            let data = {};
+            $.ajax({
+                async:false,
+                url:'https://api.nutritionix.com/v1_1/search/'+keyword+'?results=0%3A10&type=2&fields=item_name%2Citem_id%2Cbrand_name%2Cnf_calories%2Cnf_total_fat%2Cnf_total_carbohydrate%2Cnf_protein%2Cnf_serving_weight_grams&appId=1f56dd14&appKey=4045e1ee0c046c2c47a50b2cf336e57b',
+                success: function(d){
+                    data=d;
+                }
+            });
+
+            const nfCalories = [];
+            const nfTotalFat = [];
+            const nfProtein = [];
+            const nfCarboHydrate = [];
+            const nfScore = [];
+            const nfWeight = [];
+            const x = [];
+            for (let i=0; i<data.hits.length; i++){
+                x[i]=data.hits[i].fields.brand_name.concat(data.hits[i].fields.item_name);
+                nfWeight[i]=data.hits[i].fields.nf_serving_weight_grams;
+                nfCalories[i]=data.hits[i].fields.nf_calories;///nfWeight[i]
+                nfTotalFat[i]=data.hits[i].fields.nf_total_fat*10;///nfWeight[i]
+                nfScore[i]=data.hits[i]._score*10;
+                nfProtein[i]=data.hits[i].fields.nf_protein*10;///nfWeight[i]
+                nfCarboHydrate[i]=data.hits[i].fields.nf_total_carbohydrate*10;///nfWeight[i]
+
+            }
+
+            const trace1 = {
+                x: x,
+                y: nfCalories,
+                name: 'calories',
+                type: 'scatter'
+            };
+            const trace2 = {
+                x: x,
+                y: nfTotalFat,
+                name: 'fat',
+                type: 'scatter'
+            };
+            const trace3 = {
+                x: x,
+                y: nfScore,
+                name: 'score',
+                type: 'bar'
+            };
+            const trace4 = {
+                x: x,
+                y: nfProtein,
+                name: 'protein',
+                type: 'scatter'
+            };
+            const trace5 = {
+                x: x,
+                y: nfCarboHydrate,
+                name: 'carbohydrate',
+                type: 'scatter'
+            };
+            const trace6 = {
+                x: x,
+                y: nfWeight,
+                name: 'weight',
+                type: 'scatter'
+            };
+            const plotdata = [trace1, trace2, trace4, trace5, trace3];
+            const layout = {
+                title: keyword,
+                xaxis: {
+                    title: 'Products',
+                    titlefont: {
+                        family: 'Courier New, monospace',
+                        size: 18,
+                        color: '#7f7f7f'
+                    }
+                },
+                yaxis: {
+                    title: 'Value (kcal,g*10,g*10,g*10)',
+                    titlefont: {
+                        family: 'Courier New, monospace',
+                        size: 18,
+                        color: '#7f7f7f'
+                    }
+                }
+            };
+            Plotly.newPlot('myDiv', plotdata, layout);
+        }
+    }
+
+</script>
+    <h1><strong>Enter a keyword of food (e.g., pork), and then click "submit" button.
+        The figure shows the top 10 food products from Nutritionix API with highest score indicated by the bar. The line plots show the 3 main elements of food: the fat, the protein, and the carbohydrate, and the total calories, as well.</strong></h1>
+
+</div>
+
+</body>
+</html>
+
+style.css
+
+body {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background: rgba(0, 0, 0, 0.3) url('background1.jpg');
+    color: #000000;
+    text-align: center;
+    font-size: 16px;
+}
+
+index.html
+
+body {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background: rgba(0, 0, 0, 0.3) url('background1.jpg');
+    color: #000000;
+    text-align: center;
+    font-size: 16px;
+}
+
+workout.css
+#heading{
+    width:100em;
+    height:5em;
+    margin-left:-0.625em;
+    margin-top:-7.875em;
+    background-color:#5db0b3;
+    position:fixed;
+}
+#backit{
+    height:2em;
+    width:2.25em;
+    margin-left:0.375em;
+    border:solid 0.0625em white;
+}
+
+#backit:hover{
+    height:2.625em;
+    width:2.875em;
+    border:none;
+}
+
+body{
+    background-color:white;
+}
+#tablevid{
+    width:80%;
+    height:7.4em;
+    background-color:white;
+}
+
+.sideshift{
+    width:10%;
+    height:100em;
+    background-color:#f5f0f0;
+}
+
+#lefty{
+    float:left;
+    margin-left:-0.6em;
+    background-image: url(calories.jpeg);
+}
+
+#righty{
+    float:right;
+    margin-right:-0.6em;
+    background-image: url(calories.jpeg);
+}
+.aevid{
+    width:12%;
+    height:2.3em;
+    margin-left:10em;
+    background-color:#5db0b3;
+    margin-top:2em;
+    color:white;
+    border-top-left-radius:1.5625em;
+    border-top-right-radius:1.5625em;
+}
+
+table{
+    width:76%;
+    height:80em;
+    margin:auto;
+    border:solid 0.125em #5db0b3;
+}
+.divex{
+    height:2.5em;
+    width:76%;
+    background-color:#5db0b3;
+    margin: -0.625em auto auto;
+}
+td{
+    border-bottom:solid 0.125em #f0f0f0;
+    text-align:center;
+    height:15.625em;
+    vertical-align:top;
+    width:24%;
+    display:inline-block;
+}
+td:hover{
+    background-color:#b8eaee;
+}
+
+#headimg{
+    width:15%;
+    height:5em;
+    margin-left:9em;
+}
+
+p{
+    text-align:left;
+    margin-left:0.875em;
+    margin-top:0.3125em;
+    font-size:0.8175em;
+    font-family:"Comic Sans MS",cursive;
+    font-weight:bold;
+    color:#5db0b3;
+}
+h4{
+    text-align:center;
+    padding:0.485em 0.125em 0.125em 0.125em;
+}
+
+iframe{
+    border:none;
+    height:11.25em;
+    width:88%;
+}
+
+index.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Get a meal</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+          crossorigin="anonymous">
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark rightBar" style="background-image:linear-gradient(45deg, #5db0b3 0%, #b8eaee 100%);margin:0;">
+    <a class="navbar-brand" href="../mainIndex.html">Calories Tracker</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
+            aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="../BMI/index.html">BMI</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../calories-counter/index.html">Insert Calories</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../calories-counter-API/CaloriesAPI.html">Calories Search</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../recipe/index.html">Recipes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../exercises/index.html">Exercise</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../Keto/KetoIndex.html">Keto</a>
+            </li>
+        </ul>
+    </div>
+
+</nav>
+<div id="nav-bar"></div>
+<h1>Finding your Yummy Recipe</h1>
+<div class="search-container">
+    <h3>We pick for you?<button class="order">Click!</button></h3>
+    <form class="search">
+        <input type="text" name="keyword" placeholder="Name the main ingredient"><button type="submit">GO!</button>
+    </form>
+</div>
+
+<div class="meal-container"></div>
+
+<script>
+
+    function randomMeal() {
+        fetch('https://www.themealdb.com/api/json/v1/1/random.php')
+            .then(resp => resp.json())
+            .then(data => {
+                const meal = data.meals[0];
+                displayMeal(meal);
+            });
+        document.body.classList.add('open');
+    };
+
+    function mealByName(e) {
+        e.preventDefault();
+        const text = document.querySelector('input[type=text]').value;
+        fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${text}`)
+            .then(resp => resp.json())
+            .then(data => {
+                let meal;
+                data.meals === null ? meal = false: meal = data.meals[0];
+                displayMeal(meal);
+            });
+        document.body.classList.add('open');
+    }
+
+    function displayMeal(m) {
+        if(!m) {
+            return mealContainer.innerHTML = `
+					<h3>Sorry! No meal of this ingredient.</h3>
+				`
+        }
+        const { strMeal, strCategory, strArea, strInstructions,
+            strMealThumb, strYoutube } = m;
+
+        const instructions = strInstructions.split('.')
+        const displayInst = instructions.map(sentence => {
+            if(!sentence) { return null };
+            return `
+					<li>${sentence}</li>
+					`
+        }).join('');
+
+        let ingredients = [];
+        for(let i = 1; i <= 20; i++) {
+            if(m[`strIngredient${i}`]) {
+                ingredients.push(`${m[`strIngredient${i}`]} - ${m[`strMeasure${i}`]}`)
+            } else {
+                //break to get out of for loop and continue; return to get out of function
+                break;
+            }
+        }
+
+        const ingredientList = ingredients.map(ingredient => {
+            return `
+					<li>${ingredient}</li>
+				`
+        }).join('');
+
+        mealContainer.innerHTML = `
+				<img src="${strMealThumb}" alt="meal picture">
+				<div class="details">
+					<div class="name">${strMeal}</div>
+					<div class='tags'>#${strCategory} #${strArea}</div>
+					<ul class="ingredients">
+						${ingredientList}
+					</ul>
+				</div>
+				<div class="instructions">
+					<h3>Instructions</h3>
+					<ol>
+						${displayInst}
+					</ol>
+				</div>
+					<iframe width="500" height="350"  src="https://www.youtube.com/embed/${strYoutube.slice(-11)}"></iframe>
+					`
+    }
+
+    const mealContainer = document.querySelector('.meal-container');
+    const orderButton = document.querySelector('.order');
+    const searchName = document.querySelector('.search');
+
+    orderButton.addEventListener('click', randomMeal);
+    searchName.addEventListener('submit', mealByName);
+
+</script>
+</body>
+</html>
+
+style.css
+
+body {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background: rgba(0, 0, 0, 0.3) url('calories.jpeg');
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    font-family: Verdana, fantasy;
+}
+
+/* opening title */
+h1 {
+    font-family: 'Lobster', serif;
+    font-size: 4rem;
+    margin-top: 25vh;
+    letter-spacing: 2px;
+}
+
+/*=========================*/
+/* recipe search container */
+/*=========================*/
+h3 {
+    font-size: 1.5rem;
+}
+h3 button {
+    background-color: #5db0b3;
+    border: none;
+    width: 6rem;
+    height: 2rem;
+    margin: 0 1rem;
+    border-radius: 5px;
+}
+form {
+    display: flex;
+    justify-content: center;
+}
+input {
+    width: 300px;
+    height: 2rem;
+    background-color: white;
+    padding: 0;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    font-size: 1.3rem;
+}
+form button {
+    background-color: #5db0b3;
+    border: none;
+    width: 6rem;
+    height: 2rem;
+    border-radius: 0 5px 5px 0;
+}
+
+form button,
+h3 button {
+    font-family: Arial;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* when recipe is displayed */
+.open h1 {
+    display: none;
+}
+.open .search-container {
+    margin-top: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*=========================*/
+/* recipe container */
+/*=========================*/
+.meal-container {
+    box-sizing: border-box;
+    width: 70vw;
+    margin: auto;
+    background-color: white;
+    color: black;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+.meal-container img {
+    width: 40%;
+    height: 40%;
+    margin: 1.5rem;
+    box-shadow: 3px 3px 5px grey;
+}
+.meal-container .details {
+    width: 40%;
+    padding: 2rem 1rem;
+    text-align: left;
+}
+.meal-container .details .name {
+    font-size: 2.5rem;
+    font-family: 'Lobster';
+    padding: 1rem;
+}
+.meal-container .details .tags {
+    padding-left: 1rem;
+}
+.meal-container .details .ingredients {
+    box-sizing: border-box;
+    padding: 1rem 3rem;
+    background-color: #FFF69B;
+}
+
+.meal-container .instructions {
+    text-align: left;
+    width: 70%;
+    padding-bottom: 50px;
+}
+iframe {
+    margin-bottom: 50px;
+}
+
+mainIndex.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+          crossorigin="anonymous">
+ 
+
+</head>
+<style>
+    body {
+        background-image: url('calories.jpeg');
+    }
+</style>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark rightBar" style="background-image:linear-gradient(45deg, #5db0b3 0%, #b8eaee 100%);margin:0;">
+    <a class="navbar-brand" href="mainIndex.html">Calories Tracker</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
+            aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="BMI/index.html">BMI</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="calories-counter/index.html">Insert Calories</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="calories-counter-API/CaloriesAPI.html">Calories Search</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="recipe/index.html">Recipes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="exercises/index.html">Exercise</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Keto/KetoIndex.html">Keto</a>
+            </li>
+        </ul>
+    </div>
+
+</nav>
+
+</body>
+</html>
+
